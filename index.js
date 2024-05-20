@@ -3,11 +3,13 @@ import { createFile, showFiles } from "./utils.js";
 
 const server = express();
 
+//Post request to create a file
 server.post("/file", (req, res) => {
   createFile();
   res.send({ message: "File created successfully" });
 });
 
+//Get request to get all the files
 server.get("/file", async (req, res) => {
   try {
     let files = await showFiles();
@@ -17,7 +19,7 @@ server.get("/file", async (req, res) => {
   }
 });
 
-const port = 8000;
-server.listen(port, () => {
-  console.log("server listenning in ", port);
+const PORT = 8000;
+server.listen(PORT, () => {
+  console.log("server listenning in the port ", PORT);
 });
